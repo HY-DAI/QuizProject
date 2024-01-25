@@ -1,0 +1,110 @@
+  /* animation pour le background */
+  .ScorePageBody {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10em;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* changer dynamiquement la carte de présentation du joueur */
+  @media (max-width: 700px) { 
+    #dynamicCard{
+     flex-direction: column;
+    }    
+  }
+  @media (min-width:430px) and (max-width: 700px) { 
+    #dynamicCard{    
+      width:100%;
+    }    
+    #dynamicCardBorder{
+      max-width:70%;
+    }
+  }
+  
+  /* animation pour score button */
+  .link-underline {
+    border-bottom-width: 0;
+    background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+    background-size: 0 2px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size .5s ease-in-out;
+  }
+  
+  .link-underline-white {
+    background-image: linear-gradient(transparent, transparent), linear-gradient(rgb(190, 164, 114), rgb(167, 160, 128))
+  }
+  
+  .link-underline:hover {
+    background-size: 100% 2px;
+    background-position: 0 100%
+  }
+
+
+ /* Loading animation */
+.outerCircle {
+    background-color: transparent;
+    border: 8px solid rgba(97, 82, 72, 0.9);
+    opacity: 0.9;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-radius: 100px;
+    width: 103px;
+    height: 103px;
+    margin: 0 auto;
+    animation: spinPulse 3s infinite ease-in-out;
+}
+
+.innerCircle {
+    background-color: transparent;
+    border: 5px solid rgba(189, 215, 60, 0.6);
+    opacity: 0.9;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-radius: 100px;
+    top: -100px;
+    width: 92px;
+    height: 92px;
+    margin: 0 auto;
+    position: relative;
+    animation: spinoffPulse 1s infinite linear;
+}
+
+@keyframes spinPulse {
+    0% {
+        transform: rotate(160deg);
+        opacity: 0;
+        box-shadow: 0 0 1px #bdd73c;
+    }
+    50% {
+        transform: rotate(145deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-320deg);
+        opacity: 0;
+    }
+}
+
+@keyframes spinoffPulse {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

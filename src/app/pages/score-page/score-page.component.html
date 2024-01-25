@@ -1,0 +1,113 @@
+<div class="py-11 bg-cover bg-center bg-no-repeat bg-fixed"
+    style="background-image: url(./assets/imgs/city_night.jpg);">
+
+    <div class="w-5/6 mx-auto">
+        <div *ngIf="statsLoaded else notStatsLoaded">
+            <!--message pour le joueur-->
+            <div *ngIf="this.userScore" class="m-2 font-bold font-mono text-pink-400 text-center text-3xl"
+                [style]="myTextStrokeRule">
+                <div *ngIf="this.userRank === 1">
+                    Bravo {{ this.userName }}, vous êtes premier !!
+                    <div class="animate-pulse ml-4 mr-4 mt-2">Pour l'instant...</div>
+                </div>
+
+                <div *ngIf="this.userRank!==1 && this.rate > 2 / 3 else scoreMoyen">
+                    Bravo {{ this.userName }},
+                    <div class="animate-bounce ml-4 mr-4 mt-2">soyez fier</div>
+                    de votre culture G !
+                </div>
+
+                <ng-template #scoreMoyen>
+                    <div *ngIf="this.rate > 1 / 3 else scoreShit"></div>
+                    Bof, dans la moyenne...
+                    <div class="inline-flex">
+                        <div class="animate-bounce ml-4 mr-4">ouf</div>
+                        ?
+                    </div>
+
+                    <ng-template #scoreShit>
+                        Aïe {{ this.userName }}, vous vous êtes fait
+                        <div class="inline-flex">
+                            <div class="animate-bounce">détruire</div>
+                            !
+                        </div>
+                    </ng-template>
+                </ng-template>
+            </div>
+
+            <div id="dynamicCardBorder" class="items-center max-w-fit mx-auto">
+                <div id="dynamicCard"
+                    class=" flex items-center place-content-center gap-4 rounded-t-2xl rounded-l-2xl mt-8 p-6 bg-slate-400 shadow-black/40 shadow-inner">
+                    <!-- Cercle de score animé -->
+                    <app-score-load-anim [nbr_questions]="lenQuestions" [userScore]="userScore">
+                    </app-score-load-anim>
+
+                    <!-- Stats du joueur   -->
+                    <div class="p-6 flex flex-col gap-4 text-3xl text-left">
+                        <div class="font-mono">
+                            <p class="text-red-700">Score :</p>
+                            <p class="font-bold text-center">
+                                {{ this.userScore }} / {{ lenQuestions }}
+                            </p>
+                        </div>
+                        <div class="font-mono">
+                            Rang :
+                            <p class="font-bold text-center">
+                                {{ this.userRank }} / {{ this.registeredScores.length }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Les deux boutons pour clean les variables -->
+                    <div class="flex flex-col gap-4">
+                        <button
+                            class="flex place-content-center items-center gap-4 w-28 h-28 item-center text-white rounded-full bg-gray-800/80 hover:bg-gray-800"
+                            (click)="restartGame();">
+                            <p class="link link-underline link-underline-white"> Rejouer !
+                            </p>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="place-content-end mb-12 flex">
+                    <button
+                        class="items-center gap-4 py-2 w-48 border border-slate-400 item-center text-white rounded-b-lg bg-gray-800/80 hover:bg-gray-900"
+                        (click)="toggleShowAnswers();">
+                        <p v-if="this.showAnswers">Fermer les réponses</p>
+                        <p v-else>Consulter les réponses</p>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <ng-template #notStatsLoaded class="p-8 pt-24">
+            <!-- Loading animation elements -->
+            <div class="outerCircle"></div>
+            <div class="innerCircle"></div>
+            <div class="icon"></div>
+        </ng-template>
+
+        <div *ngIf="this.showAnswers">
+            <div class="w-2/3 mx-auto mb-14">
+                <div *ngFor="let item of registeredAnswers; let index=index">
+                    <div class="items-center flex p-2 mb-4">
+                        <p class="px-2 rounded-l-lg bg-slate-700 text-white text-xl">{{ index+1 }}</p>
+                        <div class="w-full p-2 rounded-r-lg bg-slate-300 shadow">
+                            <p class="text-black">{{ item.text }} </p>
+                            <p class="text-green-700 font-semibold">{{ item.isCorrect }}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Début tableau -->
+        <app-score-table>
+            <!-- image de fond du tableau -->
+            <div class="bg-neutral-500 bg-opacity-50 absolute inset-0"></div>
+        </app-score-table>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<!-- cartes de présentation du site : carousel -->
+<div id="carousel" class="carousel slide mt-3 py-7 relative" data-bs-ride="carousel">
+<!-- boutons en dessous pour passer d'une slide à l'autre -->
+<div class="carousel-indicators absolute right-0 bottom-14 left-0 flex justify-center p-0 mb-4">
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2" ></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3" ></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4" ></button>
+</div>
+<!-- bouton précédent -->
+<button class="carousel-control-prev absolute top-0 bottom-0 left-0 flex items-center justify-center text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline" 
+    type="button" data-bs-target="#carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+</button>
+<!-- bouton suivant -->
+<button class="carousel-control-next absolute top-0 bottom-0 right-0 flex items-center justify-center text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline" 
+    type="button" data-bs-target="#carousel" data-bs-slide="next" >
+    <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+</button>
+<!-- contenu du carousel -->
+<div class="carousel-inner relative h-[600px] items-center overflow-hidden">
+    <!-- 1ère slide -->
+    <div class="carousel-item active relative float-left items-center w-full">
+    <app-carousel-slide
+        backgroundImageURL="./assets/imgs/big_door.jpg" 
+        title="欢迎! Welcome! Bienvenue !"
+        imageURL="https://www.flickr.com/photos/seeminglee/14615975852"
+        licenseURL="https://creativecommons.org/licenses/by-nc/2.0/"
+        description="Bienvenue sur notre site dans lequel vous allez pouvoir retrouver un quiz qui testera l'étendue de vos connaissances sur la culture Chinoise."
+    >
+    </app-carousel-slide>
+    </div>
+    <!-- 2ème slide -->
+    <div class="carousel-item relative float-left items-center w-full">
+    <app-carousel-slide
+        backgroundImageURL="./assets/imgs/dragon_festival.jpg"
+        title="Montrez nous vos capacités et challengez vous !"
+        imageURL="https://www.cwa-ni.org/history-of-chinese-new-year/"
+        licenseURL="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr"
+        description="Saurez-vous vous démarquer par rapport aux autres participants ayant déjà testé les limites de leurs connaissances sur la culture Chinoise ?"
+    >
+    </app-carousel-slide>
+    </div>
+    <!-- 3ème slide -->
+    <div class="carousel-item relative float-left items-center w-full">
+    <app-carousel-slide
+        backgroundImageURL="./assets/imgs/dragon_festival_night.jpg"
+        title="Pour participer, c'est par ici !"
+        imageURL="https://commons.wikimedia.org/wiki/File:Mid-Autumn_Festival-beijing.jpg"
+        licenseURL="https://creativecommons.org/licenses/by-sa/2.5/"
+        description="Quoi de mieux pour avoir un aperçu de vos connaissance que de faire le quiz sur la Culture Chinoise ! Qu'attendez-vous ? Cliquez vite sur la flamme juste au-dessus avant que les dragons ne le fassent disparaître !"
+    >
+        <template #fireButton>
+        <div class= "flex absolute left-0 right-8 bottom-56 items-center justify-center rounded-full">
+            <a routerLink="/start-new-quiz-page">
+            <svg class="w-44 h-44 text-red-600 animate-pulse" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+            </svg>
+            </a>
+        </div>
+        </template>
+    </app-carousel-slide>
+    </div>
+    <!-- 4ème slide -->
+    <div class="carousel-item relative float-left items-center w-full">
+    <app-carousel-slide
+        backgroundImageURL="./assets/imgs/street_lanterns.jpg"
+        title="Plus on est de fou, plus on rit !"
+        imageURL="https://commons.wikimedia.org/wiki/File:China-Shanghai-YuGarden-the_Lantern_Festival-2012_1828.JPG"
+        licenseURL="https://creativecommons.org/licenses/by-sa/3.0/"
+        description="N'hésitez pas à challenger vos amis également en leur envoyant le lien de ce quiz"
+    >
+    </app-carousel-slide>
+    </div>
+</div>
+</div>

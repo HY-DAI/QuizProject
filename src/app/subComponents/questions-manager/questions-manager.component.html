@@ -1,0 +1,79 @@
+<div [style]="myStyle">
+
+  <div class="w-5/6 mx-auto">
+    
+    <!-- Loading animation elements -->    
+    <div *ngIf="loading; else notLoading" class="p-8 pt-24">
+        <div class="outerCircle"></div>
+        <div class="innerCircle"></div>
+        <div class="icon"></div>
+    </div>
+
+    <ng-template #notLoading>
+      <div *ngIf="this.totalNumberOfQuestion !== 0 else noQuestions">
+        <h1
+          class="py-8 px-8 text-3xl font-bold text-red-600"
+          [style]="myTextStrokeRule"
+        >
+          Impressionnez-nous !
+        </h1>
+        <div class="flex items-center mb-4 gap-4">
+          <div class="flex items-center gap-4 grow text-left font-bold text-black text-xl" v-if="username" :style="myTextStrokeRule">
+            Joueur : {{ this.username }} 
+          </div>
+          <div class="place-content-end">
+            <!-- remettre en button quans ok -->
+            <a class="flex items-center gap-2 bg-rose-700 hover:bg-rose-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            (click)="this.endQuiz()"
+            href="scorePage" >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path d="M3.105 2.289a.75.75 0 00-.826.95l1.414 4.925A1.5 1.5 0 005.135 9.25h6.115a.75.75 0 010 1.5H5.135a1.5 1.5 0 00-1.442 1.086l-1.414 4.926a.75.75 0 00.826.95 28.896 28.896 0 0015.293-7.154.75.75 0 000-1.115A28.897 28.897 0 003.105 2.289z" />
+              </svg>
+              Terminer
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="text-center shadow-md border rounded bg-white bg-opacity-60"
+        >
+          
+          <div id="wrapperQuestion" class=" mb-16 mt-8 mx-16">
+            <div id="questionNumBox"
+              class="flex place-content-center gap-6 p-2 rounded font-bold text-xl text-sky-700 border bg-white bg-opacity-50"
+            >
+              <button
+                  class="px-1 py-1 align-middle rounded hover:bg-white hover:bg-opacity-50 hover:text-black"
+                  (click)="loadRightQuestion(CHAMP_PREV)"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+              </button>
+
+              Question {{ currentQuestionPosition+1 }} / {{ totalNumberOfQuestion }}
+              
+              <button
+                class="px-1 py-1 rounded hover:bg-white hover:bg-opacity-50 hover:text-black"
+                (click)="loadRightQuestion(CHAMP_NEXT)"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </button>
+            </div>
+
+            <app-question-display
+              [question]="questions[this.currentQuestionPosition]" [answerChosedId]="this.answers[this.currentQuestionPosition]" (emetteurAnswer)="answerClickedHandler($event)"
+              (click-on-answer)="answerClickedHandler"
+            ></app-question-display>
+          </div>
+        </div>
+      </div>
+      <ng-template #noQuestions class="py-40 text-white font-bold text-3xl items-center justify-center">
+        <h1 class="text-5xl mb-3 animate-bounce"> Oops ! </h1> 
+        Il n'y a pas encore de question.
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

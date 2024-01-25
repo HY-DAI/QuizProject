@@ -1,0 +1,56 @@
+
+<!-- <NavBar></NavBar> -->
+<app-nav-bar></app-nav-bar>
+
+<section class="py-11 bg-orange-100 h-full">
+    <div class="w-5/6 mx-auto">
+      <!-- titre de la page -->
+      <a class="text-5xl flex items-center py-1 px-7">
+        <!-- icon maison -->
+        <svg class="w-12 h-12 mr-2 text-red-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
+        </svg>
+        <!-- titre -->
+        <span class="font-bold text-red-700">Page d'accueil</span>
+      </a>
+      <app-carousel></app-carousel>
+      <!-- transition encore le carousel et le tableau des scores -->
+      <div class="my-8 text-3xl text-center">
+        <p> 
+          Vous voulez savoir comment les autres se sont débrouillés ? 
+        </p>
+        <p> 
+          Découvrez le classement des meilleurs joueurs juste en dessous ! 
+        </p>
+        <div class="flex justify-center items-center mt-7">
+          <svg class="w-12 h-12 animate-bounce text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+      </div>
+      
+      <!-- image de fond du tableau -->
+      <!-- <div
+      class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+      style="background-image: url('./assets/imgs/lanterns.jpg');" >
+        <app-score-table></app-score-table>
+      </div> -->
+
+
+      <a class="flex items-center gap-2">
+        <svg class="w-6 h-6 min-w-max" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </svg>
+        <div class="flex flex-col">
+          <p> 
+            Attention, le nombre de questions peut changer au fil du 
+            temps, donc ne vous fiez pas uniquement au score. 
+          </p>
+          <p>  
+            De plus, le classement se fait par 
+            taux de réussite et date de soumission.
+          </p>
+        </div>
+      </a>
+    </div>
+  </section>

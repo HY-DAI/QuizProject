@@ -1,0 +1,22 @@
+  /* changer des parametres selon la taille de la fenetre */
+  @media (max-width: 550px) { 
+    #imgBox{    
+      width: 80%;
+    }    
+    #answerButtons{
+      width: 100%;
+    }
+  }
+  @media (min-width:550px) and (max-width: 768px) { 
+    #imgBox{    
+      width: 50%;
+    }    
+    #answerButtons{
+      width: 90%;
+    }
+  }
+  @media (min-width:768px) and (max-width: 1024px) { 
+    #imgBox{    
+      width: 50%;
+    }    
+  }
