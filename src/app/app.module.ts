@@ -15,11 +15,13 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { QuestionsManagerComponent } from './subComponents/questions-manager/questions-manager.component';
 import { QuestionDisplayComponent } from './subComponents/question-display/question-display.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 const routes: Routes = [
   { path: 'newQuizPage', component: NewQuizPageComponent },
   { path: 'questionPage', component: QuestionsManagerComponent },
   { path: 'scorePage', component: ScorePageComponent },
-  { path: '', component: HomePageComponent }
+  { path: '**', component: HomePageComponent }
 ]
 
 @NgModule({
@@ -39,6 +41,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes) 
   ],
   providers: [],

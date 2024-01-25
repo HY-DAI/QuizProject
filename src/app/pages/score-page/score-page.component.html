@@ -4,42 +4,43 @@
     <div class="w-5/6 mx-auto">
         <div *ngIf="statsLoaded else notStatsLoaded">
             <!--message pour le joueur-->
-            <div *ngIf="this.userScore" class="m-2 font-bold font-mono text-pink-400 text-center text-3xl"
+            <div class="m-2 font-bold font-mono text-pink-400 text-center text-3xl"
                 [style]="myTextStrokeRule">
-                <div *ngIf="this.userRank === 1">
-                    Bravo {{ this.userName }}, vous êtes premier !!
-                    <div class="animate-pulse ml-4 mr-4 mt-2">Pour l'instant...</div>
-                </div>
-
-                <div *ngIf="this.userRank!==1 && this.rate > 2 / 3 else scoreMoyen">
-                    Bravo {{ this.userName }},
-                    <div class="animate-bounce ml-4 mr-4 mt-2">soyez fier</div>
-                    de votre culture G !
-                </div>
-
-                <ng-template #scoreMoyen>
-                    <div *ngIf="this.rate > 1 / 3 else scoreShit"></div>
-                    Bof, dans la moyenne...
-                    <div class="inline-flex">
-                        <div class="animate-bounce ml-4 mr-4">ouf</div>
-                        ?
+                
+                <div [ngSwitch]="rateComment">
+                    <div *ngSwitchCase="commentFirst">                        
+                        Bravo {{ participation.playerName }}, vous êtes premier !!
+                        <div class="animate-pulse ml-4 mr-4 mt-2">Pour l'instant...</div>
                     </div>
-
-                    <ng-template #scoreShit>
-                        Aïe {{ this.userName }}, vous vous êtes fait
+                    <div *ngSwitchCase="commentGood">
+                        Bravo {{ participation.playerName }},
+                        <div class="animate-bounce ml-4 mr-4 mt-2">soyez fier</div>
+                        de votre culture G !
+                    </div>
+                    <div *ngSwitchCase="commentMid">
+                        Bof, dans la moyenne...
+                        <div class="inline-flex">
+                            <div class="animate-bounce ml-4 mr-4">ouf</div>
+                            ?
+                        </div>
+                    </div>
+                    <div *ngSwitchCase="commentNoob">
+                        Aïe {{ participation.playerName  }}, vous vous êtes fait
                         <div class="inline-flex">
                             <div class="animate-bounce">détruire</div>
                             !
                         </div>
-                    </ng-template>
-                </ng-template>
+                    </div>
+                </div>
+            
             </div>
 
             <div id="dynamicCardBorder" class="items-center max-w-fit mx-auto">
                 <div id="dynamicCard"
                     class=" flex items-center place-content-center gap-4 rounded-t-2xl rounded-l-2xl mt-8 p-6 bg-slate-400 shadow-black/40 shadow-inner">
-                    <!-- Cercle de score animé -->
-                    <app-score-load-anim [nbr_questions]="lenQuestions" [userScore]="userScore">
+                    <!-- Cercle de score animé  -->
+                    <app-score-load-anim 
+                    [userRate]="participation.rate">
                     </app-score-load-anim>
 
                     <!-- Stats du joueur   -->
@@ -47,13 +48,13 @@
                         <div class="font-mono">
                             <p class="text-red-700">Score :</p>
                             <p class="font-bold text-center">
-                                {{ this.userScore }} / {{ lenQuestions }}
+                                {{ participation.score }} / {{ quizQuestions.length }}
                             </p>
                         </div>
                         <div class="font-mono">
                             Rang :
                             <p class="font-bold text-center">
-                                {{ this.userRank }} / {{ this.registeredScores.length }}
+                                {{ userRank }} / {{ registeredScores.length }}
                             </p>
                         </div>
                     </div>
@@ -73,8 +74,8 @@
                     <button
                         class="items-center gap-4 py-2 w-48 border border-slate-400 item-center text-white rounded-b-lg bg-gray-800/80 hover:bg-gray-900"
                         (click)="toggleShowAnswers();">
-                        <p v-if="this.showAnswers">Fermer les réponses</p>
-                        <p v-else>Consulter les réponses</p>
+                        <ng-container *ngIf="this.showAnswers else closeAnswers">Fermer les réponses</ng-container>
+                        <ng-template #closeAnswers>Consulter les réponses</ng-template>
                     </button>
                 </div>
 
@@ -89,20 +90,20 @@
             <div class="icon"></div>
         </ng-template>
 
-        <div *ngIf="this.showAnswers">
+        <ng-container *ngIf="this.showAnswers">
             <div class="w-2/3 mx-auto mb-14">
-                <div *ngFor="let item of registeredAnswers; let index=index">
+                <div *ngFor="let qText of quizQuestions; let index=index">
                     <div class="items-center flex p-2 mb-4">
                         <p class="px-2 rounded-l-lg bg-slate-700 text-white text-xl">{{ index+1 }}</p>
                         <div class="w-full p-2 rounded-r-lg bg-slate-300 shadow">
-                            <p class="text-black">{{ item.text }} </p>
-                            <p class="text-green-700 font-semibold">{{ item.isCorrect }}</p>
+                            <p class="text-black">{{ qText }} </p>
+                            <p class="text-green-700 font-semibold">{{ rightAnswers[index] }}</p>
                         </div>
                     </div>
 
                 </div>
             </div>
-        </div>
+        </ng-container>
 
         <!-- Début tableau -->
         <app-score-table>

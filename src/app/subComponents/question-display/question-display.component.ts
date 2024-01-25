@@ -7,14 +7,15 @@ import { Question } from '../question';
   styleUrls: ['./question-display.component.css']
 })
 export class QuestionDisplayComponent {
+  @Input() answerChosedId:number=-1;
   @Input() question:Question={
+    id:0,
     text: '',
     title: '',
     image: '',
     position: 0,
     possibleAnswers: []
   };
-  @Input() answerChosedId:number=-1;
 
   @Output() selectedAnswer:number = 0;
 	@Output() emetteurAnswer= new EventEmitter<number>();

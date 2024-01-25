@@ -7,41 +7,51 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PlayerService {
-  private playerName = new BehaviorSubject<string>("Anonyme");
-  private score = new BehaviorSubject<number>(0);
-  private rate = new BehaviorSubject<number>(0);
-  private date = new BehaviorSubject<Date>(new Date());
+  private currentPlayerId:number;
 
-  private participations: Participation[] = [];
+  // private participations: Participation[] = [];
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.currentPlayerId=0;
+  }
 
   URL_API:string = "http://localhost:3000/participations";
 
-  getParticipationId(participation: Participation) {
-    for (var id=0; id<this.participations.length; id++) {
-      if (this.participations[id]===participation) {
-        return id;
-      }
-    } // à traiter par les compos
-    return -1;
+  getCurrentId() {
+    return this.currentPlayerId;
   }
+  setCurrentId(id:number) {
+    this.currentPlayerId = id;
+  }
+  // getParticipationId(participation: Participation) {
+  //   for (var id=0; id<this.participations.length; id++) {
+  //     if (this.participations[id]===participation) {
+  //       return id;
+  //     }
+  //   } // pb à traiter par les compos
+  //   return -1;
+  // }
 
   getParticipations() : Observable<Participation[]> {
     return this.http.get<Participation[]>(this.URL_API);
   }
 
-  getParticipationsById(id: number) : Observable<Participation[]> {
-    return this.http.get<Participation[]>(`${this.URL_API}/${id}`);
+  getParticipationById(id: number) : Observable<Participation> {
+    return this.http.get<Participation>(`${this.URL_API}/${id}`);
   }
 
   addParticipation(participation: Participation) {
-    this.participations.push(participation);
+    // this.participations.push(participation);
     return this.http.post(this.URL_API,participation);
   }
 
-  modifyParticipation(id:number, participation:Participation) {
-    this.participations[id] = participation;
+  modifyParticipation(id:string, participation:Participation) {
+    // this.participations[id] = participation;
     return this.http.put(`${this.URL_API}/${id}`,participation);
+  }
+
+  deleteParticipation(id:string) {
+    // this.participations = this.participations.filter(p => p.id !== id);
+    return this.http.delete<void>(`${this.URL_API}/${id}`);
   }
 }

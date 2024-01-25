@@ -3,6 +3,7 @@ import { Question } from '../question';
 import { QuestionManagerService } from 'src/app/services/question-manager.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { Router } from '@angular/router';
+import { Participation } from '../participation';
 
 @Component({
   selector: 'app-questions-manager',
@@ -11,13 +12,13 @@ import { Router } from '@angular/router';
 })
 export class QuestionsManagerComponent {
 
-  loading:boolean = true;
-  totalNumberOfQuestion:number = 0;
-  currentQuestionPosition:number = 0;
+  loading: boolean = true;
+  totalNumberOfQuestion: number = 0;
+  currentQuestionPosition: number = 0;
 
-  username:string = "";
-  answers:number[] = [];
-  questions:Question[] = [];
+  participation: Participation = { id: "0", playerName: "", score: 0, rate: 0, date: new Date() };
+  answers: number[] = [];
+  questions: Question[] = [];
 
   myStyle = {
     textAlign: "center",
@@ -35,32 +36,37 @@ export class QuestionsManagerComponent {
   readonly CHAMP_PREV = "prev";
   readonly CHAMP_NEXT = "next";
 
-  ngOnInit() {
-    console.log("QuestionsPage created");
-  };
-
-  
   constructor(
     private questionManagerService: QuestionManagerService,
     private playerService: PlayerService,
     private router: Router
   ) {
-    // this.username = this.playerService.getPlayerName();
-    this.questionManagerService.getQuestions().subscribe(questions=>{
+    var currId = this.playerService.getCurrentId();
+    // var vPar:Participation[];
+    // this.playerService.getParticipations().subscribe(ps=>{
+    //   vPar=ps;
+    //   console.log("participations :",vPar);
+    // });
+    
+    this.playerService.getParticipationById(currId).subscribe(p => {
+      this.participation = p;
+    });
+
+    this.questionManagerService.getQuestions().subscribe(questions => {
       this.totalNumberOfQuestion = questions.length;
       this.questions = questions;
       this.answers = Array(questions.length).fill(-1);
     });
-    this.loading=false;
+    this.loading = false;
   };
 
-  loadRightQuestion(prevOrNext:string) {
-    if (prevOrNext===this.CHAMP_PREV) {
+  loadRightQuestion(prevOrNext: string) {
+    if (prevOrNext === this.CHAMP_PREV) {
       if (this.currentQuestionPosition > 0) {
         this.currentQuestionPosition--;
         // this.loadQuestionByPosition();
       }
-    } else if (prevOrNext===this.CHAMP_NEXT) {
+    } else if (prevOrNext === this.CHAMP_NEXT) {
       if (this.currentQuestionPosition + 1 < this.totalNumberOfQuestion) {
         this.currentQuestionPosition++;
         // this.loadQuestionByPosition();
@@ -71,15 +77,10 @@ export class QuestionsManagerComponent {
     console.log(this.answers)
   }
 
-  async loadQuestionByPosition() {
-    console.log("load Question By Position");
-    // this.loading = false;
-  };
-
-  answerClickedHandler(answer:number) {
+  answerClickedHandler(answer: number) {
     console.log("answer Clicked Handler");
     this.answers[this.currentQuestionPosition] = answer;
-    if (this.currentQuestionPosition+1 >= this.totalNumberOfQuestion) {
+    if (this.currentQuestionPosition + 1 >= this.totalNumberOfQuestion) {
       return this.endQuiz();
     }
     this.currentQuestionPosition++;
@@ -88,9 +89,12 @@ export class QuestionsManagerComponent {
 
   endQuiz() {
     console.log("end Quiz");
-    var score = this.questionManagerService.calculateScore(this.questions,this.answers);
-    // this.playerService.setScore(score);
-    // this.playerService.setDate();
+    var score = this.questionManagerService.calculateScore(this.questions, this.answers);
+    this.participation.score = score;
+    if (this.questions.length != 0) {
+      this.participation.rate = score / this.questions.length;
+    }
+    this.playerService.modifyParticipation(this.participation.id, this.participation).subscribe();
     this.router.navigateByUrl('scorePage');
   };
 }

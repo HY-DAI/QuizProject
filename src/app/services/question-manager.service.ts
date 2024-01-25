@@ -15,16 +15,15 @@ export class QuestionManagerService {
 
   getQuestions() : Observable<Question[]> {
     return this.http.get<Question[]>(this.URL_API);
-  }
-
+  };
+  
   calculateScore(questions:Question[],answers:number[]) : number {
     var score = 0;  
     for (let idx = 0; idx < questions.length; idx++) {
-      if (answers[idx]!==-1 && questions[idx].possibleAnswers[answers[idx]]) {
-        score++;
-      }
+        if (answers[idx]!==-1 && questions[idx].possibleAnswers[answers[idx]]) {
+            score++;
+        }
     }
     return score;
-  }
-
+  };
 }

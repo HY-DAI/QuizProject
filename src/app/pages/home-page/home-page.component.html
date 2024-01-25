@@ -1,7 +1,3 @@
-
-<!-- <NavBar></NavBar> -->
-<app-nav-bar></app-nav-bar>
-
 <section class="py-11 bg-orange-100 h-full">
     <div class="w-5/6 mx-auto">
       <!-- titre de la page -->
@@ -13,7 +9,9 @@
         <!-- titre -->
         <span class="font-bold text-red-700">Page d'accueil</span>
       </a>
+
       <app-carousel></app-carousel>
+
       <!-- transition encore le carousel et le tableau des scores -->
       <div class="my-8 text-3xl text-center">
         <p> 
@@ -30,11 +28,13 @@
       </div>
       
       <!-- image de fond du tableau -->
-      <!-- <div
-      class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
-      style="background-image: url('./assets/imgs/lanterns.jpg');" >
-        <app-score-table></app-score-table>
-      </div> -->
+      <app-score-table>
+        <ng-template
+          class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+          style="background-image: url('./assets/imgs/lanterns.jpg');" >
+        </ng-template>
+      </app-score-table>
+      
 
 
       <a class="flex items-center gap-2">

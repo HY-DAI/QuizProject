@@ -66,7 +66,7 @@
                     <!-- pourcentage de réussite -->
                     <td class="px-6 flex items-centers" style="width: 80px;">
                     <p class="mr-2">
-                        {{scoreEntry.rate}}
+                        {{scoreEntry.rate*100}}
                     </p>
                     <p class="mr-2">
                         %
@@ -79,7 +79,7 @@
                         <div class="overflow-hidden h-2 text-xs flex rounded bg-red-200">
                             <div
                             class="h-full progressbar bg-yellow-500"
-                            [style]="'width: {{scoreEntry.rate}}%'"
+                            [style]="'width:'+scoreEntry.rate*100+'%'"
                             >
                             </div>
                         </div>

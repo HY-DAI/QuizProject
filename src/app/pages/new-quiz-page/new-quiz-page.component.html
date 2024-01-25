@@ -1,37 +1,28 @@
 <div [style]="myStyle">
-    <h1
-    class="py-16 px-8 text-4xl font-bold text-red-800"
-    [style]="myTextStrokeRule"
-    >
-    Démarrer le quiz !
+
+    <h1 class="py-16 px-8 text-4xl font-bold text-red-800" [style]="myTextStrokeRule">
+        Démarrer le quiz !
     </h1>
 
     <div class="mt-8 grid gap-4 place-content-center">
-    <form
-        class="shadow-md border rounded px-8 py-8 mb-4 bg-white bg-opacity-50"
-        id="username"
-        action=""
-        method="post"
-    >
-        <label
-        class="block text-xl text-rose-700 font-bold mb-2"
-        for="name"
-        [style]="myTextStrokeRule"
-        >
-        Saisissez votre nom :
-        </label>
-        <input
-        class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-        type="text"
-        id="name"
-        placeholder="Votre super pseudo"
-        v-model="username"
-        />
-<!-- rechanger en button quand ok -->
-        <button class="bg-rose-700 hover:bg-rose-900 mt-1 text-white font-bold w-full py-2 px-3 rounded focus:outline-none focus:shadow-outline"
-            (click)="launchNewQuiz()" >
-            GO!
-        </button>
-    </form>
+        <form [formGroup]="playForm" class="shadow-md border rounded px-8 py-8 mb-4 bg-white bg-opacity-50">
+            <label class="block text-xl text-rose-700 font-bold mb-2" [style]="myTextStrokeRule">
+                Saisissez votre nom :
+            </label>
+            <input
+                class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                type="text" placeholder="Votre super pseudo" 
+                [formControlName]="CHAMP_NOM" />
+                
+        <span *ngIf="playForm.controls[this.CHAMP_NOM]?.touched && playForm.controls[this.CHAMP_NOM]?.hasError('required')">
+            Ce champ est obligatoire
+        </span>
+            <button
+                [disabled]="playForm.invalid"
+                class="bg-rose-700 hover:bg-rose-900 mt-1 text-white font-bold w-full py-2 px-3 rounded focus:outline-none focus:shadow-outline"
+                (click)="launchNewQuiz()">
+                GO!
+            </button>
+        </form>
     </div>
 </div>

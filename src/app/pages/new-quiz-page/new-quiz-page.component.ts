@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PlayerService } from 'src/app/services/player.service';
+import { Participation } from 'src/app/subComponents/participation';
 
 // import participationStorageService from "@/services/ParticipationStorageService";
 
@@ -10,7 +12,15 @@ import { PlayerService } from 'src/app/services/player.service';
   styleUrls: ['./new-quiz-page.component.css']
 })
 export class NewQuizPageComponent {
-  username: string = "";
+  readonly CHAMP_NOM = "nom";
+
+  participation: Participation = {
+    id: "0",
+    playerName: "Anonyme",
+    score: 0,
+    rate: 0,
+    date: new Date()
+  };
 
   myStyle = {
     textAlign: "center",
@@ -29,13 +39,20 @@ export class NewQuizPageComponent {
     private playerService:PlayerService,
     private router: Router
   ) { 
-    // this.username = this.playerService.getPlayerName();
+    this.playerService.getParticipations().subscribe(ps => {
+      this.participation.id = ''+ps.length;
+    });
   }
 
+  playForm: FormGroup = new FormGroup({
+    [this.CHAMP_NOM]: new FormControl(null,Validators.required)
+  });
+
   launchNewQuiz() {
-    console.log("Launch new quiz with", this.username);
-    if(this.username)
-      // this.playerService.setPlayerName(this.username);
+    this.participation.playerName = this.playForm.controls[this.CHAMP_NOM].value;
+    this.playerService.setCurrentId(Number(this.participation.id));
+    this.playerService.addParticipation(this.participation).subscribe();
+    console.log("Launch new quiz with", this.participation.playerName);
     this.router.navigateByUrl("questionPage");
   };
 }
