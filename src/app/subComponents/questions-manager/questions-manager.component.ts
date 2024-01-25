@@ -89,8 +89,8 @@ export class QuestionsManagerComponent {
   endQuiz() {
     console.log("end Quiz");
     var score = this.questionManagerService.calculateScore(this.questions,this.answers);
-    this.playerService.setScore(score);
-    this.playerService.setDate();
+    // this.playerService.setScore(score);
+    // this.playerService.setDate();
     this.router.navigateByUrl('scorePage');
   };
 }
