@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "docs/QuizProject/",
+            "outputPath": "docs/",
             "baseHref": "/QuizProject/",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -56,14 +56,6 @@
             }
           },
           "defaultConfiguration": "production"
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy",
-          "options": {
-            "repo": "https://github.com/HY-DAI/QuizProject.git",
-            "branch": "gh-pages",
-            "baseHref": "/QuizProject/"
-          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
