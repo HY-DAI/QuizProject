@@ -15,7 +15,7 @@ export class ScoreLoadAnimComponent {
   };
 
   ngOnInit() {
-    this.circleStyle["--sratio"] = 470*(1-this.userRate);
+    this.circleStyle["--sratio"] = 460*(1-this.userRate);
     this.loadScore();  
   };
 

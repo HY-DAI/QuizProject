@@ -16,8 +16,11 @@ import { QuestionsManagerComponent } from './subComponents/questions-manager/que
 import { QuestionDisplayComponent } from './subComponents/question-display/question-display.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { FilpCardComponent } from './subComponents/filp-card/filp-card.component';
 
 const routes: Routes = [
+  { path: 'aboutPage', component: AboutPageComponent },
   { path: 'newQuizPage', component: NewQuizPageComponent },
   { path: 'questionPage', component: QuestionsManagerComponent },
   { path: 'scorePage', component: ScorePageComponent },
@@ -36,7 +39,9 @@ const routes: Routes = [
     NewQuizPageComponent,
     HomePageComponent,
     QuestionsManagerComponent,
-    QuestionDisplayComponent
+    QuestionDisplayComponent,
+    AboutPageComponent,
+    FilpCardComponent
   ],
   imports: [
     BrowserModule,

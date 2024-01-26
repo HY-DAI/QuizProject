@@ -19,8 +19,8 @@
             <!-- première partie -->
             <div class="hidden md:flex space-x-1 items-center">
                 <a href="/" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Page d'accueil</a>
-                <a href="/about" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Qui sommes-nous ?</a>
-                <a href="/admin" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Connexion administration</a>
+                <a href="/aboutPage" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Qui sommes-nous ?</a>
+                <a href="/adminPage" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Connexion administration</a>
             </div>
             <!-- deuxième partie -->
             <div class= "flex items-center space-x-2">
@@ -28,7 +28,7 @@
             </div>
             <!-- mobile button (apparaît lorsque la fênetre est plus petite) -->
             <div class="md:hidden flex items-center">
-            <button class="mobile-menu-button">
+            <button (click)="toggleMenu()" class="mobile-menu-button" >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
@@ -36,10 +36,10 @@
             </div>
         </div>
         <!-- mobile menu (apparaît lorsque la fênetre est plus petite) -->
-        <div class="mobile-menu hidden md:hidden text-white bg-[#00182E]">
+        <div #menuElement class="mobile-menu hidden md:hidden text-white bg-[#00182E]">
             <a href="/" class="block py-3 px-3 hover:bg-[#00274A]">Page d'accueil</a>
-            <a href="/about" class="block py-3 px-3 hover:bg-[#00274A]">Qui sommes-nous ?</a>
-            <a href="/admin" class="block py-3 px-3 hover:bg-[#00274A]">Connexion administration</a>
+            <a href="/aboutPage" class="block py-3 px-3 hover:bg-[#00274A]">Qui sommes-nous ?</a>
+            <a href="/adminPage" class="block py-3 px-3 hover:bg-[#00274A]">Connexion administration</a>
         </div>
         </div>
     </div>

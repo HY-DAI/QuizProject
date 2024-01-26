@@ -553,33 +553,5 @@
       "rate": 0,
       "date": "2024-01-25T16:32:43.648Z"
     },
-    {
-      "id": "5",
-      "playerName": "qcd",
-      "score": 20,
-      "rate": 1,
-      "date": "2024-01-25T16:34:40.606Z"
-    },
-    {
-      "id": "6",
-      "playerName": "rgeg",
-      "score": 0,
-      "rate": 0,
-      "date": "2024-01-25T19:18:23.528Z"
-    },
-    {
-      "id": "7",
-      "playerName": "testoutille",
-      "score": 20,
-      "rate": 1,
-      "date": "2024-01-25T21:10:40.193Z"
-    },
-    {
-      "id": "8",
-      "playerName": "bla",
-      "score": 20,
-      "rate": 1,
-      "date": "2024-01-25T21:33:59.996Z"
-    }
   ]
 }

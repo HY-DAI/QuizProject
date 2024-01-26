@@ -1,0 +1,173 @@
+<section class="py-11 bg-orange-100 h-full">
+    <div class="w-5/6 mx-auto"> 
+    <!-- titre de la page -->
+    <a class=" text-5xl flex items-center py-1 px-7">
+        <!-- icon maison -->
+        <svg class="w-12 h-12 mr-2 text-red-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+        </svg>
+        <!-- titre text -->
+        <span class="font-bold text-red-700"> Qui sommes-nous ? </span>
+    </a>
+    <!-- cartes de présentation des personnes-->
+    <div class="mt-10 gap-3 justify-center items-center grid grid-cols-1 place-items-center lg:flex">
+        <!-- 1ère carte : Huiying DAI-->
+        <app-filp-card name="Huiying DAI" 
+                presentation="Etudiante en dernière année d'école d'ingénieur spécialisée en Informatique"
+                hobby="Philosophie : réfléchir et manger"
+                backgroundImageURL="./assets/imgs/dragons.jpg"
+                linkedinURL="https://fr.linkedin.com/in/huiying-dai-7219a71b5"
+                imageURL="https://www.rawpixel.com/image/5924500"
+                licenseURL="https://creativecommons.org/publicdomain/zero/1.0/"
+                >
+        </app-filp-card>
+        <!-- backgroundImageURL="https://img.rawpixel.com/private/static/images/website/2022-05/px1292817-image-kwvy1xs1.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=7c30808c57522f732b2b65e71836deb1" -->
+                
+
+        <!-- 2ème carte : Emilie CHEN -->
+        <app-filp-card name="Emilie CHEN" 
+                presentation="Etudiante en dernière année d'école d'ingénieur spécialisée en Informatique"
+                hobby="Philosophie : être créative et ambitieuse"
+                backgroundImageURL="./assets/imgs/temples_draw.jpg"
+                linkedinURL="https://fr.linkedin.com/in/emilie-chen-a077b022a/en?trk=people-guest_people_search-card&original_referer=https%3A%2F%2Fwww.google.com%2F"
+                imageURL="https://commons.wikimedia.org/wiki/File:Algorithmically-generated_landscape_artwork_of_forest_with_Shinto_shrine_using_negative_prompt_for_green_trees.png"
+                licenseURL="https://creativecommons.org/licenses/by-sa/4.0/deed.fr"
+                >
+        </app-filp-card>
+
+        <!-- 3ème carte : Isabelle CAI -->
+        <app-filp-card name="Isabelle CAI" 
+                presentation="Etudiante en dernière année d'école d'ingénieur spécialisée en Date Science et Intelligence Artificielle"
+                hobby="Philosophie : survivre aux défis de la vie"
+                backgroundImageURL="./assets/imgs/dragons.jpg"
+                linkedinURL="https://fr.linkedin.com/in/isabelle-cai-019a0a221"
+                imageURL="https://www.rawpixel.com/image/5924500"
+                licenseURL="https://creativecommons.org/publicdomain/zero/1.0/"
+                >
+        </app-filp-card>
+    </div>
+    <!-- carte de présentation du projet et licences-->
+    <div class="mt-7 gap-3 justify-center items-center grid grid-cols-1 lg:flex">
+        <!-- presentation du projet -->
+        <div class="group grow relative items-center justify-center overflow-hidden hover:shadow-black/30 transition-transform-shadow">
+        <div class="group h-96 w-full [perspective:1000px] ">
+            <img class="h-full w-full rounded-xl object-cover group-hover:rotate-3 group-hover:scale-125 transition-transform" src="/assets/imgs/boats_night.jpg"/>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
+        <div class="absolute inset-0 text-white flex flex-col items-center justify-center px-9 text-center translate-y-[63%] group-hover:translate-y-0 transition-all">
+            <h1 class="text-3xl font-bold"> Pourquoi ce quiz ?</h1>
+            <p class="py-3 text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300"> 
+            Toutes trois étudiantes en dernière année d'école d'ingénieur à ESIEE Paris, 
+            ce quiz est le projet que nous devions réaliser pour l'unité "Developpement Full Stack Web" sous la 
+            responsabilité de Simon BUDIN et Raphaël ESCURE.
+            </p>
+            <div class="flex items-center gap-1 py-3">
+            <p>
+                Nous avions à notre disposition
+            </p>
+            <a class="rounded-lg shadow shadow-black/60 bg-purple-600 py-1 px-0.5 text-sm text-white hover:bg-purple-800" href="https://equable-dresser-d83.notion.site/E5-Projet-Quiz-Web-full-stack-03d37502a6b343329ca7cfdab6623f5c">
+                un cahier des charges
+            </a>
+            </div>
+            <div class="gap-1">
+            <p>
+                Le code du site est disponible sur le github suivant :
+            </p>
+            <a class="underline text-sm text-white hover:text-purple-400" href="https://github.com/cai-i/Projet_Quiz_Flask_VueJS">
+                lien
+            </a>
+            <!-- liens image + licence -->
+            <div class="absolute bottom-2 right-3 flex flex-col justify-end text-white">
+                <div class="flex items-center opacity-50 hover:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+                <a class="py-1 px-1 hover:underline" href="https://www.flickr.com/photos/stuckincustoms/5780094040">
+                    image
+                </a>
+                </div>
+                <div class="flex items-center opacity-50 hover:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                </svg>
+                <a class="py-1 px-1 hover:underline" href="https://creativecommons.org/licenses/by-nc-sa/2.0/deed.fr">
+                    licence
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- licences -->
+        <div class="group grow relative items-center justify-center overflow-hidden hover:shadow-black/30 transition-transform-shadow">
+        <div class="h-96 w-full">
+            <img class="h-full w-full rounded-xl object-cover group-hover:rotate-3 group-hover:scale-125 transition-transform" src="/assets/imgs/roofs.jpg"/>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
+        <div class="absolute inset-0 mt-3 text-white flex flex-col items-center justify-center px-9 text-center translate-y-[62%] group-hover:translate-y-0 transition-all">
+            <h1 class="text-3xl font-bold"> Les images</h1>
+            <div class="mb-3 text-gray-200">
+            <p class="text-base italic opacity-0 group-hover:opacity-100 transition-opacity duration-300"> 
+                Ici, vous trouverez les liens vers les images et leurs licences s'ils n'ont pas été 
+                directement misent sur les images.
+            </p>
+            </div>
+            <p class="font-bold text-green-400"> Les images : </p> 
+            <!-- <div class="gap 3 grid grid-cols-2"> -->
+            <div class="gap-7">
+                <a class="py-1 px-1 hover:text-yellow-400" href="https://www.shutterstock.com/fr/image-photo/shanghai-february-25-tourists-visit-yuyuan-148544318">
+                NavBar
+                </a>
+                <a class="py-1 px-1 hover:text-yellow-400" href="https://commons.wikimedia.org/wiki/File:Shanghai_skyline_unsplash.jpg">
+                ScorePage
+                </a>
+                <a class="py-1 px-1 hover:text-yellow-400" href="https://commons.wikimedia.org/wiki/File:Celebration_Chinese_Lantern_Festival.jpg">
+                TableauScores_HomePage
+                </a>
+                <a class="py-1 px-1 hover:text-yellow-400" href="http://184.105.177.41/s/?q=bestof%3Afish+molveno+circle">
+                QuizPage
+                </a>
+                <a class="py-1 px-1 hover:text-yellow-400" href="https://www.flickr.com/photos/kaiban/6137170702">
+                StartQuizPage
+                </a>
+            </div>
+            <!-- </div> -->
+            <div>
+            <p class="font-bold text-green-400"> Les licences : </p> 
+            <a class="py-1 px-1 hover:text-yellow-400" href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">
+                TableauScores_HomePage
+            </a>
+            <a class="py-1 px-1 hover:text-yellow-400" href="http://creativecommons.org/publicdomain/zero/1.0/deed.en">
+                ScorePage
+            </a>
+            <a class="py-1 px-1 hover:text-yellow-400" href="https://creativecommons.org/licenses/publicdomain/">
+                QuizPage
+            </a>
+            <a class="py-1 px-1 hover:text-yellow-400" href="https://creativecommons.org/licenses/by-nc/2.0/">
+                StartQuizPage
+            </a>
+            </div>
+            <!-- liens image + licence -->
+            <div class="absolute bottom-2 right-3 flex flex-col justify-end text-white">
+            <div class="flex items-center opacity-50 hover:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+                <a class="py-1 px-1 hover:underline" href="https://www.flickr.com/photos/stuckincustoms/26805877601">
+                image
+                </a>
+            </div>
+            <div class="flex items-center opacity-50 hover:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                </svg>
+                <a class="py-1 px-1 hover:underline" href="https://creativecommons.org/licenses/by-nc-sa/2.0/deed.fr">
+                licence
+                </a>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</section>
