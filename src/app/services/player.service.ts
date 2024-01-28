@@ -15,7 +15,9 @@ export class PlayerService {
     this.currentPlayerId=0;
   }
 
-  URL_API:string = "http://localhost:3000/participations";
+  // URL_API:string = "http://localhost:3000/participations";
+  URL_API:string = "https://my-json-server.typicode.com/HY-DAI/QuizProjectJsonServer/participations";
+  
 
   getCurrentId() {
     return this.currentPlayerId;

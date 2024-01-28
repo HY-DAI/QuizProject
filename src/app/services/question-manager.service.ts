@@ -11,7 +11,8 @@ export class QuestionManagerService {
 
   constructor(private http: HttpClient) { }
 
-  URL_API:string = "http://localhost:3000/questions";
+  // URL_API:string = "http://localhost:3000/questions";
+  URL_API:string = "https://my-json-server.typicode.com/HY-DAI/QuizProjectJsonServer/questions";
 
   getQuestions() : Observable<Question[]> {
     return this.http.get<Question[]>(this.URL_API);
