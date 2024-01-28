@@ -39,8 +39,7 @@ export class ScorePageComponent {
   showAnswers: boolean = false;
 
   myTextStrokeRule = {
-    textShadow:
-      "0 2px 3px white, 0 -2px 4px CadetBlue",
+    textShadow: "0 2px 3px white, 0 -2px 4px CadetBlue",
     webkitTextStroke: "0.3px",
     webkitTextStrokeColor: "white",
   };

@@ -24,13 +24,6 @@ export class QuestionsManagerComponent {
   answers: number[] = [];
   questions: Question[] = [];
 
-  myStyle = {
-    textAlign: "center",
-    paddingBottom: "10em",
-    backgroundSize: "100% auto",
-    backgroundAttachment: "fixed, scroll, local",
-    backgroundImage: "url(./assets/imgs/koi_fish.jpg)",
-  };
   myTextStrokeRule = {
     textShadow: "0 4px 6px white, 0 -4px 6px CadetBlue, 4px 0 3px CadetBlue, -4px 0 3px CadetBlue",
     webkitTextStroke: "0.3px",
@@ -68,12 +61,10 @@ export class QuestionsManagerComponent {
     if (prevOrNext === this.CHAMP_PREV) {
       if (this.currentQuestionPosition > 0) {
         this.currentQuestionPosition--;
-        // this.loadQuestionByPosition();
       }
     } else if (prevOrNext === this.CHAMP_NEXT) {
       if (this.currentQuestionPosition + 1 < this.totalNumberOfQuestion) {
         this.currentQuestionPosition++;
-        // this.loadQuestionByPosition();
       }
       else this.endQuiz();
     }
@@ -88,7 +79,6 @@ export class QuestionsManagerComponent {
       return this.endQuiz();
     }
     this.currentQuestionPosition++;
-    // this.loadQuestionByPosition();
   };
 
   endQuiz() {
@@ -98,7 +88,8 @@ export class QuestionsManagerComponent {
     if (this.questions.length != 0) {
       this.participation.rate = score / this.questions.length;
     }
-    this.playerService.modifyParticipation(this.participation.id, this.participation).subscribe();
-    this.router.navigateByUrl('scorePage');
+    this.playerService.modifyParticipation(this.participation.id, this.participation).subscribe(() => {
+      this.router.navigateByUrl('scorePage');
+    });
   };
 }

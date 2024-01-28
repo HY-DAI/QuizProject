@@ -1,47 +1,57 @@
 <nav class="bg-white">
     <div class="relative shadow bg-white">
-    <!-- image de fond du NavBar -->
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url(https://www.shutterstock.com/image-photo/shanghai-february-25-tourists-visit-600w-148544318.jpg)"></div>
-    <!-- brouille l'image de fond pour mieux voir les textes -->
-    <div class="w-full backdrop-blur">
-        <div class="mx-auto text-white">
-        <!-- titre du NavBar -->
-        <div>
-            <a class="text-5xl flex items-center py-20 px-3">
-            <svg class="h-12 w-12 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
-            </svg>
-            <span class="font-bold">Quiz sur la Culture Chinoise</span>
-            </a>
+        <!-- image de fond du NavBar -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+            style="background-image: url(https://www.shutterstock.com/image-photo/shanghai-february-25-tourists-visit-600w-148544318.jpg)">
         </div>
-        <!-- les boutons possibles -->
-        <div class="flex justify-between items-center px-3 py-3 bg-[#00182E]">
-            <!-- première partie -->
-            <div class="hidden md:flex space-x-1 items-center">
-                <a routerLink="/" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Page d'accueil</a>
-                <a routerLink="/aboutPage" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Qui sommes-nous ?</a>
-                <a routerLink="/adminPage" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Connexion administration</a>
+        <!-- brouille l'image de fond pour mieux voir les textes -->
+        <div class="w-full backdrop-blur">
+            <div class="mx-auto text-white">
+                <!-- titre du NavBar -->
+                <div>
+                    <a class="text-5xl flex items-center py-20 px-3">
+                        <svg class="h-12 w-12 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
+                        </svg>
+                        <span class="font-bold">Quiz sur la Culture Chinoise</span>
+                    </a>
+                </div>
+                <!-- les boutons possibles -->
+                <div class="flex justify-between items-center px-3 py-3 bg-[#00182E]">
+                    <!-- première partie -->
+                    <div class="max-md:hidden space-x-1 items-center">
+                        <a routerLink="/" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Page
+                            d'accueil</a>
+                        <a routerLink="/aboutPage" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Qui
+                            sommes-nous ?</a>
+                        <a routerLink="/adminPage"
+                            class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Connexion administration</a>
+                    </div>
+                    <!-- deuxième partie -->
+                    <div class="flex items-center space-x-2">
+                        <a routerLink="/newQuizPage" class="py-3 px-3 bg-red-600 hover:bg-red-700 rounded">Démarrer le
+                            quiz !</a>
+                    </div>
+                    <!-- mobile button (apparaît lorsque la fênetre est plus petite) -->
+                    <div class="md:hidden flex items-center">
+                        <button (click)="toggleMenu()" class="mobile-menu-button p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- mobile menu (apparaît lorsque la fênetre est plus petite) -->
+                <div #menuElement class="mobile-menu hidden text-white bg-[#00182E]">
+                    <a routerLink="/" class="block py-3 px-3 hover:bg-[#00274A]">Page d'accueil</a>
+                    <a routerLink="/aboutPage" class="block py-3 px-3 hover:bg-[#00274A]">Qui sommes-nous ?</a>
+                    <a routerLink="/adminPage" class="block py-3 px-3 hover:bg-[#00274A]">Connexion administration</a>
+                </div>
             </div>
-            <!-- deuxième partie -->
-            <div class= "flex items-center space-x-2">
-            <a routerLink="/newQuizPage" class="py-3 px-3 bg-red-600 hover:bg-red-700 rounded">Démarrer le quiz !</a>
-            </div>
-            <!-- mobile button (apparaît lorsque la fênetre est plus petite) -->
-            <div class="md:hidden flex items-center">
-            <button (click)="toggleMenu()" class="mobile-menu-button" >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button> 
-            </div>
         </div>
-        <!-- mobile menu (apparaît lorsque la fênetre est plus petite) -->
-        <div #menuElement class="mobile-menu hidden md:hidden text-white bg-[#00182E]">
-            <a routerLink="/" class="block py-3 px-3 hover:bg-[#00274A]">Page d'accueil</a>
-            <a routerLink="/aboutPage" class="block py-3 px-3 hover:bg-[#00274A]">Qui sommes-nous ?</a>
-            <a routerLink="/adminPage" class="block py-3 px-3 hover:bg-[#00274A]">Connexion administration</a>
-        </div>
-        </div>
-    </div>
     </div>
 </nav>

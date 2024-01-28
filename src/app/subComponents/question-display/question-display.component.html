@@ -4,7 +4,7 @@
 
 <img id="imgBox" class="w-1/3 h-auto m-6 mb-10 object-cover mx-auto" *ngIf="question.image" [src]="question.image" />
 
-<div class="p-4 pb-8 border rounded bg-white bg-opacity-40 ">
+<div class="p-4 pb-8 border rounded bg-white/40 ">
     <div class="block text-rose-700 text-xl font-bold mb-6">
         {{ question.text }}
     </div>
@@ -12,8 +12,8 @@
     <ul>
         <li *ngFor="let answer of question.possibleAnswers; let idx=index;">
             <button id="answerButtons"
-                class="mx-auto w-4/5 bg-opacity-80 hover:bg-opacity-100 shadow-md border rounded block m-2 p-2 hover:font-semibold"
-                [ngClass]="idx === answerChosedId ? 'border-teal-700 border-2 bg-opacity-60 bg-teal-400' : 'bg-white'"
+                class="mx-auto w-4/5 shadow-md border rounded block m-2 p-2 hover:font-semibold"
+                [ngClass]="idx === answerChosedId ? 'border-teal-700/60 border-2 bg-teal-400' : 'bg-white/80 hover:bg-white/100'"
                 (click)="emetChoosenAnswer(idx)">
                 {{ answer.text }}
             </button>

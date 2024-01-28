@@ -3,7 +3,7 @@ import { Question } from '../question';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-question-display<',
+  selector: 'app-question-display',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './question-display.component.html',
