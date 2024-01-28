@@ -18,13 +18,13 @@
         <div class="flex justify-between items-center px-3 py-3 bg-[#00182E]">
             <!-- première partie -->
             <div class="hidden md:flex space-x-1 items-center">
-                <a href="/" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Page d'accueil</a>
-                <a href="/aboutPage" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Qui sommes-nous ?</a>
-                <a href="/adminPage" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Connexion administration</a>
+                <a routerLink="/" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Page d'accueil</a>
+                <a routerLink="/aboutPage" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Qui sommes-nous ?</a>
+                <a routerLink="/adminPage" class="py-3 px-3 hover:bg-yellow-400 hover:text-black rounded">Connexion administration</a>
             </div>
             <!-- deuxième partie -->
             <div class= "flex items-center space-x-2">
-            <a href="newQuizPage" class="py-3 px-3 bg-red-600 hover:bg-red-700 rounded">Démarrer le quiz !</a>
+            <a routerLink="/newQuizPage" class="py-3 px-3 bg-red-600 hover:bg-red-700 rounded">Démarrer le quiz !</a>
             </div>
             <!-- mobile button (apparaît lorsque la fênetre est plus petite) -->
             <div class="md:hidden flex items-center">
@@ -37,9 +37,9 @@
         </div>
         <!-- mobile menu (apparaît lorsque la fênetre est plus petite) -->
         <div #menuElement class="mobile-menu hidden md:hidden text-white bg-[#00182E]">
-            <a href="/" class="block py-3 px-3 hover:bg-[#00274A]">Page d'accueil</a>
-            <a href="/aboutPage" class="block py-3 px-3 hover:bg-[#00274A]">Qui sommes-nous ?</a>
-            <a href="/adminPage" class="block py-3 px-3 hover:bg-[#00274A]">Connexion administration</a>
+            <a routerLink="/" class="block py-3 px-3 hover:bg-[#00274A]">Page d'accueil</a>
+            <a routerLink="/aboutPage" class="block py-3 px-3 hover:bg-[#00274A]">Qui sommes-nous ?</a>
+            <a routerLink="/adminPage" class="block py-3 px-3 hover:bg-[#00274A]">Connexion administration</a>
         </div>
         </div>
     </div>

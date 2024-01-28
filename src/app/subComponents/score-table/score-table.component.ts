@@ -3,9 +3,12 @@ import { Participation } from '../participation';
 import { PlayerService } from 'src/app/services/player.service';
 import { QuestionManagerService } from 'src/app/services/question-manager.service';
 import { mergeMap, tap } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-score-table',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './score-table.component.html',
   styleUrls: ['./score-table.component.css']
 })

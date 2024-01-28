@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-filp-card',
+  standalone: true,
   templateUrl: './filp-card.component.html',
   styleUrls: ['./filp-card.component.css']
 })

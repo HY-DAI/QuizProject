@@ -4,9 +4,13 @@ import { QuestionManagerService } from 'src/app/services/question-manager.servic
 import { PlayerService } from 'src/app/services/player.service';
 import { Router } from '@angular/router';
 import { Participation } from '../participation';
+import { QuestionDisplayComponent } from '../question-display/question-display.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-questions-manager',
+  standalone:true,
+  imports: [CommonModule,QuestionDisplayComponent],
   templateUrl: './questions-manager.component.html',
   styleUrls: ['./questions-manager.component.css']
 })

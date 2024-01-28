@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-score-load-anim',
+  standalone: true,
   templateUrl: './score-load-anim.component.html',
   styleUrls: ['./score-load-anim.component.css']
 })

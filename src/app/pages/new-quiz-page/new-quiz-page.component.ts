@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PlayerService } from 'src/app/services/player.service';
 import { Participation } from 'src/app/subComponents/participation';
@@ -8,6 +9,8 @@ import { Participation } from 'src/app/subComponents/participation';
 
 @Component({
   selector: 'app-new-quiz-page',
+  standalone: true,
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './new-quiz-page.component.html',
   styleUrls: ['./new-quiz-page.component.css']
 })
@@ -53,7 +56,7 @@ export class NewQuizPageComponent {
     this.playerService.setCurrentId(Number(this.participation.id));
     this.playerService.addParticipation(this.participation).subscribe();
     console.log("Launch new quiz with", this.participation.playerName);
-    this.router.navigateByUrl("questionPage");
+    this.router.navigateByUrl("/questionPage");
   };
 }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Participation } from '../subComponents/participation';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -25,14 +25,6 @@ export class PlayerService {
   setCurrentId(id:number) {
     this.currentPlayerId = id;
   }
-  // getParticipationId(participation: Participation) {
-  //   for (var id=0; id<this.participations.length; id++) {
-  //     if (this.participations[id]===participation) {
-  //       return id;
-  //     }
-  //   } // pb à traiter par les compos
-  //   return -1;
-  // }
 
   getParticipations() : Observable<Participation[]> {
     return this.http.get<Participation[]>(this.URL_API);

@@ -7,9 +7,14 @@ import { QuestionManagerService } from 'src/app/services/question-manager.servic
 import { Participation } from 'src/app/subComponents/participation';
 import { mergeMap, tap } from 'rxjs';
 import { Question } from 'src/app/subComponents/question';
+import { CommonModule } from '@angular/common';
+import { ScoreLoadAnimComponent } from 'src/app/subComponents/score-load-anim/score-load-anim.component';
+import { ScoreTableComponent } from 'src/app/subComponents/score-table/score-table.component';
 
 @Component({
   selector: 'app-score-page',
+  standalone: true,
+  imports: [CommonModule,ScoreLoadAnimComponent,ScoreTableComponent],
   templateUrl: './score-page.component.html',
   styleUrls: ['./score-page.component.css']
 })

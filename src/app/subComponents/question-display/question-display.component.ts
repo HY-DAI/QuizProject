@@ -1,8 +1,11 @@
 import { Component, EventEmitter, Input,Output } from '@angular/core';
 import { Question } from '../question';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-question-display<',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './question-display.component.html',
   styleUrls: ['./question-display.component.css']
 })

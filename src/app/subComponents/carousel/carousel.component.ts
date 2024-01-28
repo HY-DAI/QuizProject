@@ -4,6 +4,8 @@ import { CarouselSlideComponent } from '../carousel-slide/carousel-slide.compone
 
 @Component({
   selector: 'app-carousel',
+  standalone: true,
+  imports: [CarouselSlideComponent],
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })
